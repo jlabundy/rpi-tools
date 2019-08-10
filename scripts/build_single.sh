@@ -5,7 +5,7 @@ then
   sudo sshfs root@raspberrypi:/ /mnt/raspberrypi
 fi
 
-make ARCH=arm CROSS_COMPILE=arm-linux-gnueabihf- $1
+make ARCH=arm CROSS_COMPILE=arm-linux-gnueabihf- M="$(dirname $1)"
 
 mod_path=$(grep -o '".*"' include/generated/utsrelease.h | sed 's/"//g')
 
